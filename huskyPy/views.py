@@ -14,18 +14,9 @@ import time
 @app.route('/')
 @app.route('/home')
 async def home():
-    #await cwb_crawl()
-
-    #return "hello world"
-    #return "hello world"
-    #"""Renders the home page."""
-    #return await render_template(
-    #    'index.html',
-    #    title='Home Page',
-    #    year=datetime.now().year,
-    #)
+    
     return await render_template(
-        'test.html',
+        'index.html',
         title='Home Page',
         year=datetime.now().year,
     )
@@ -51,9 +42,9 @@ def about():
     )
 
 @app.route('/crawl')
-def crawl():
+async def crawl():
     #result_obj = loop.run_until_complete(cwb_crawl())
-    cwb_crawl()
+    await cwb_crawl()
     #result_obj = cwb_crawl()
     #print(result_obj)
 

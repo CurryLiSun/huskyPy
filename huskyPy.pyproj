@@ -17,6 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>huskyPy</Name>
     <RootNamespace>huskyPy</RootNamespace>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="huskyPy\templates\test.html" />
+    <Content Include="huskyPy\templates\testLayout.html" />
     <Content Include="requirements.txt" />
     <Content Include="huskyPy\static\content\bootstrap.css" />
     <Content Include="huskyPy\static\content\bootstrap.min.css" />

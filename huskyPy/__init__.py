@@ -6,7 +6,7 @@ The flask application package.
 #app = Flask(__name__)
 
 from quart import Quart
-
 app = Quart(__name__)
+
 
 import huskyPy.views
