@@ -12,7 +12,7 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Web launcher</LaunchProvider>
-    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <WebBrowserUrl>http://localhost:5555</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>huskyPy</Name>
@@ -31,6 +31,9 @@
     <Compile Include="huskyPy\crawl\crawl_web.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="huskyPy\lineapi\linebot_reply.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="huskyPy\__init__.py" />
     <Compile Include="huskyPy\views.py" />
@@ -38,6 +41,7 @@
   <ItemGroup>
     <Folder Include="huskyPy\" />
     <Folder Include="huskyPy\crawl\" />
+    <Folder Include="huskyPy\lineapi\" />
     <Folder Include="huskyPy\static\" />
     <Folder Include="huskyPy\static\content\" />
     <Folder Include="huskyPy\static\fonts\" />
@@ -47,6 +51,7 @@
   <ItemGroup>
     <Content Include="huskyPy\templates\test.html" />
     <Content Include="huskyPy\templates\testLayout.html" />
+    <Content Include="huskyPy\crawl\chromedriver.exe" />
     <Content Include="requirements.txt" />
     <Content Include="huskyPy\static\content\bootstrap.css" />
     <Content Include="huskyPy\static\content\bootstrap.min.css" />

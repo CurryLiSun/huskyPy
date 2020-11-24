@@ -1,8 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession,AsyncHTMLSession
-import asyncio
-loop = asyncio.get_event_loop()
+from selenium import webdriver
+import time
+import pathlib
 
 def travel_kaohsiung_crawl():
 	travel_kaohsiung_r = requests.get(
@@ -30,35 +31,27 @@ def news_prove_crawl():
 
 	return news_result
 
-async def cwb_crawl():
+def cwb_crawl(cwb_page=1):
 	cwb_local_url = "https://www.cwb.gov.tw"
 	cwb_contents_url = ["/V8/C/W/OBS_Sat.html","/V8/C/W/OBS_Radar.html","/V8/C/P/Rainfall/Rainfall_QZJ.html"]
-	cwb_img_contents_url = []
+	cwb_search_url="";
+	#choice which page to crawl
+	if cwb_page >= 0 and cwb_page <= 2:
+		cwb_search_url = cwb_contents_url[cwb_page]
 
-	#todo fix to Async
-	asession = AsyncHTMLSession()
-	r =await asession.get(cwb_local_url + cwb_contents_url[1])
-	await r.html.arender()
-	#r.html.render()
-	rendered_js_attrs = r.html.find("div#link-1",first=True).html
-	cwb_soup = BeautifulSoup(rendered_js_attrs, "html.parser")
-	cwb_obs_result = cwb_soup.select_one("img").get("src")
-	cwb_obs_img_url = cwb_obs_result
-
-	for cwb_content in cwb_contents_url:
-		#support js
-		#session = HTMLSession()
-		#r = session.get(cwb_local_url + cwb_content)
-		#r.html.render()
-		##===
-		#rendered_js_attrs = r.html.find("div#link-1",first=True).html
-		#cwb_soup = BeautifulSoup(rendered_js_attrs, "html.parser")
-		#cwb_obs_result = cwb_soup.select_one("img").get("src")
-		#cwb_obs_img_url = cwb_obs_result
-
-		#cwb_img_contents_url.append(cwb_obs_img_url)
-		##print(cwb_local_url + cwb_obs_img_url)
-		pass
-
-	print(cwb_obs_img_url)
-	return cwb_obs_img_url
+	#set path to find webdriver
+	file_path = pathlib.Path(__file__).parent.absolute()
+	#print(str(file_path)+"\chromedriver")
+	#set webdriver Options for dont show gui
+	options = webdriver.ChromeOptions()
+	options.add_argument("--headless")
+	driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
+	driver.get(cwb_local_url + cwb_search_url)
+	htmlSource = driver.page_source
+	cwb_soup = BeautifulSoup(htmlSource, "html.parser")
+	cwb_soup = cwb_soup.find(["div"], attrs={"id":"link-1"})
+	cwb_obs_img_url = cwb_soup.select_one("img").get("src")
+	driver.quit()
+	#===
+	#print(cwb_local_url + cwb_obs_img_url)
+	return cwb_local_url + cwb_obs_img_url
