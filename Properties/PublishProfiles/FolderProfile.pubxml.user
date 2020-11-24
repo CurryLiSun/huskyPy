@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\user\source\repos\huskyPy\.\app.publish\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="huskyPy/crawl/chromedriver.exe">
+      <publishTime>10/14/2020 02:38:46</publishTime>
+    </File>
+    <File Include="huskyPy/crawl/crawl_web.py">
+      <publishTime>11/24/2020 10:50:17</publishTime>
+    </File>
+    <File Include="huskyPy/lineapi/linebot_reply.py">
+      <publishTime>11/24/2020 13:45:44</publishTime>
+    </File>
+    <File Include="huskyPy/static/content/bootstrap.css">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/content/bootstrap.min.css">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/content/site.css">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="huskyPy/static/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/bootstrap.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/bootstrap.min.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery-1.10.2.intellisense.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery-1.10.2.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery-1.10.2.min.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery-1.10.2.min.map">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery.validate-vsdoc.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery.validate.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery.validate.min.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery.validate.unobtrusive.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/modernizr-2.6.2.js">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/respond.js">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/respond.min.js">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="huskyPy/static/scripts/_references.js">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="huskyPy/templates/about.html">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/templates/contact.html">
+      <publishTime>11/18/2020 13:31:27</publishTime>
+    </File>
+    <File Include="huskyPy/templates/index.html">
+      <publishTime>11/20/2020 17:19:27</publishTime>
+    </File>
+    <File Include="huskyPy/templates/layout.html">
+      <publishTime>11/20/2020 17:05:47</publishTime>
+    </File>
+    <File Include="huskyPy/templates/test.html">
+      <publishTime>11/20/2020 17:08:34</publishTime>
+    </File>
+    <File Include="huskyPy/templates/testLayout.html">
+      <publishTime>11/20/2020 17:07:50</publishTime>
+    </File>
+    <File Include="huskyPy/views.py">
+      <publishTime>11/24/2020 12:54:28</publishTime>
+    </File>
+    <File Include="huskyPy/__init__.py">
+      <publishTime>11/24/2020 13:45:11</publishTime>
+    </File>
+    <File Include="requirements.txt">
+      <publishTime>11/18/2020 13:31:28</publishTime>
+    </File>
+    <File Include="runserver.py">
+      <publishTime>11/23/2020 09:23:04</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
