@@ -18,7 +18,6 @@ gazpacho==1.1
 h11==0.11.0
 h2==4.0.0
 hpack==4.0.0
-Hypercorn==0.11.1
 hyperframe==6.0.0
 idna==2.10
 itsdangerous==1.1.0
