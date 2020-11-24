@@ -52,6 +52,7 @@
     <Content Include="huskyPy\templates\test.html" />
     <Content Include="huskyPy\templates\testLayout.html" />
     <Content Include="huskyPy\crawl\chromedriver.exe" />
+    <Content Include="Procfile" />
     <Content Include="requirements.txt" />
     <Content Include="huskyPy\static\content\bootstrap.css" />
     <Content Include="huskyPy\static\content\bootstrap.min.css" />
