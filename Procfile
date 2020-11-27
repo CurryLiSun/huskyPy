@@ -1,1 +1,1 @@
-web: python runserver.py -p '5555'
+web: python runserver.py ${PORT}
