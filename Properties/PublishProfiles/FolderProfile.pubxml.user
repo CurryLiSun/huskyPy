@@ -106,6 +106,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="huskyPy/__init__.py">
       <publishTime>11/24/2020 13:45:11</publishTime>
     </File>
+    <File Include="Procfile">
+      <publishTime>11/27/2020 16:55:29</publishTime>
+    </File>
     <File Include="requirements.txt">
       <publishTime>11/24/2020 15:41:01</publishTime>
     </File>
