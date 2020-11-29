@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession,AsyncHTMLSession
@@ -45,8 +46,15 @@ def cwb_crawl(cwb_page=1):
 	#set webdriver Options for dont show gui
 	options = webdriver.ChromeOptions()
 	options.add_argument("--headless")
-	#driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
+	options.add_argument("--disable-dev-shm-usage")
+	options.add_argument("--no-sandbox")
+	options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	print(str(os.environ.get("GOOGLE_CHROME_BIN")))
 	driver = webdriver.Chrome("chromedriver" ,options=options)
+	if str(os.environ.get("GOOGLE_CHROME_BIN")) is not None :
+	    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+	#driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+	#driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
 	driver.get(cwb_local_url + cwb_search_url)
 	htmlSource = driver.page_source
 	cwb_soup = BeautifulSoup(htmlSource, "html.parser")
