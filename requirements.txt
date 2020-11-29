@@ -15,6 +15,7 @@ fake-useragent==0.1.11
 Flask==1.1.2
 future==0.18.2
 gazpacho==1.1
+gunicorn==20.0.4
 h11==0.11.0
 h2==4.0.0
 hpack==4.0.0
