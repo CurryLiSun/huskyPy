@@ -6,7 +6,6 @@ from os import environ
 from huskyPy import app
 
 if __name__ == '__main__':
-    #app.run()
     HOST = environ.get('SERVER_HOST', 'localhost')
     #HOST = environ.get('SERVER_HOST', '127.0.0.1')
 
