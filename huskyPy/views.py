@@ -4,16 +4,16 @@ Routes and views for the flask application.
 from datetime import datetime
 from huskyPy import app
 from flask import render_template
-#
-#from quart import render_template
 from huskyPy.crawl.crawl_web import *
 #
 import time
+from flask import request
 
 @app.route('/')
 @app.route('/home')
 def home():
-    
+    """Renders the home page."""
+    print(request.data)
     return render_template(
         'index.html',
         title='Home Page',
