@@ -45,7 +45,8 @@ def cwb_crawl(cwb_page=1):
 	#set webdriver Options for dont show gui
 	options = webdriver.ChromeOptions()
 	options.add_argument("--headless")
-	driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
+	#driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
+	driver = webdriver.Chrome("chromedriver" ,options=options)
 	driver.get(cwb_local_url + cwb_search_url)
 	htmlSource = driver.page_source
 	cwb_soup = BeautifulSoup(htmlSource, "html.parser")
