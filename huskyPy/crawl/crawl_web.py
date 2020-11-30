@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession,AsyncHTMLSession
@@ -40,12 +41,22 @@ def cwb_crawl(cwb_page=1):
 		cwb_search_url = cwb_contents_url[cwb_page]
 
 	#set path to find webdriver
-	file_path = pathlib.Path(__file__).parent.absolute()
+	#file_path = pathlib.Path(__file__).parent.absolute()
 	#print(str(file_path)+"\chromedriver")
 	#set webdriver Options for dont show gui
 	options = webdriver.ChromeOptions()
 	options.add_argument("--headless")
-	driver = webdriver.Chrome(str(file_path)+"\chromedriver" ,options=options)
+	options.add_argument("--disable-dev-shm-usage")
+	options.add_argument("--no-sandbox")
+	options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	#print(os.environ.get("GOOGLE_CHROME_BIN") is not None)
+	print(os.environ)
+	#when evniron BIN PATH no value, then defult local PATH
+	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH" ,"chromedriver"), chrome_options=options)
+	if os.environ.get("GOOGLE_CHROME_BIN") is not None :
+	    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+	#driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+	#driver = webdriver.Chrome("chromedriver" ,options=options)
 	driver.get(cwb_local_url + cwb_search_url)
 	htmlSource = driver.page_source
 	cwb_soup = BeautifulSoup(htmlSource, "html.parser")
