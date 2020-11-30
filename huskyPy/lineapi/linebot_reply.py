@@ -20,34 +20,32 @@ def api_huskypy():
 	reply_msg_content = {};
 
 	if msg_type == "message":
-	    reply_msg_content = message_reply(msg_source, msg_content)
+	    message_reply(msg_replytoken, msg_source, msg_content)
 	elif msg_type == "join":
-		reply_msg_content = join_reply(msg_source)
+		join_reply(msg_replytoken, msg_source)
 	elif msg_type == "follow":
-		reply_msg_content = follow_reply(msg_source)
+		follow_reply(msg_replytoken, msg_source)
 
-	line_bot_api.reply_message(
-		reply_token = msg_replytoken,
-		messages = TextSendMessage(reply_msg_content))
 
 	json_str = json.dumps(reply_msg_content)
 	return "OK"
 
 #reply function
-def message_reply(source, msg):
+def message_reply(replytoken, source, msg):
 	print(source)
 	print(msg)
-	result_content = {}
-	result_content["type"] = "text"
-	result_content["text"] = source["userId"] + msg["text"]
 	
-	return result_content
+	line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(source["userId"] + msg["text"])]
+		)
 	
+	pass	
 
-def join_reply(source):
+def join_reply(replytoken, source):
 	print(source)
 	
 
-def follow_reply(source):
+def follow_reply(replytoken, source):
 	print(source)
 	
