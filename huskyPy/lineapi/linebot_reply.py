@@ -37,7 +37,7 @@ def message_reply(replytoken, source, msg):
 	
 	line_bot_api.reply_message(
 		reply_token = replytoken,
-		messages = [TextSendMessage(source["userId"] + msg["text"])]
+		messages = [TextSendMessage(msg["text"])]
 		)
 	
 	pass	
