@@ -15,12 +15,13 @@ def api_huskypy():
 	msg_type = data["events"][0]["type"]
 	msg_replytoken = data["events"][0]["replyToken"]
 	msg_source = data["events"][0]["source"]
-	msg_content = data["events"][0]["message"]
+	print("===req data")
 	print(data)
 	reply_msg_content = {};
 
 	if msg_type == "message":
-	    message_reply(msg_replytoken, msg_source, msg_content)
+		msg_content = data["events"][0]["message"]
+		message_reply(msg_replytoken, msg_source, msg_content)
 	elif msg_type == "join":
 		join_reply(msg_replytoken, msg_source)
 	elif msg_type == "follow":
@@ -32,9 +33,6 @@ def api_huskypy():
 
 #reply function
 def message_reply(replytoken, source, msg):
-	print(source)
-	print(msg)
-	
 	no_space_msg = str(msg["text"]).lstrip().rstrip()
 	result_search = None
 	#remove string head and foot space
@@ -89,7 +87,6 @@ def message_reply(replytoken, source, msg):
 	pass
 
 def join_reply(replytoken, source):
-	print(source)
 	#welcome join my line bot
 	msg_send = "感謝您的加入，目前服務有以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量)\
@@ -101,7 +98,6 @@ def join_reply(replytoken, source):
 		)
 
 def follow_reply(replytoken, source):
-	print(source)
 	#welcome follow my line bot
 	msg_send = "感謝您的加入，目前服務有以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量)\
