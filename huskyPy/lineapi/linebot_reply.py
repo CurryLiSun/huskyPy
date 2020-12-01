@@ -27,7 +27,6 @@ def api_huskypy():
 	elif msg_type == "follow":
 		follow_reply(msg_replytoken, msg_source)
 
-
 	json_str = json.dumps(reply_msg_content)
 	return "OK"
 
@@ -66,14 +65,14 @@ def message_reply(replytoken, source, msg):
 
 		line_bot_api.reply_message(
 		reply_token = replytoken,
-		messages = [TextSendMessage(result_search)]
+		messages = [TextSendMessage(str(result_search))]
 		)
 	elif no_space_msg == "@新聞真假":
 		result_search = news_prove_crawl()
 
 		line_bot_api.reply_message(
 		reply_token = replytoken,
-		messages = [TextSendMessage(result_search)]
+		messages = [TextSendMessage(str(result_search))]
 		)
 	elif no_space_msg == "@加油打氣":
 		result_search = "我知道這很不容易，但全體PUA都會支持你!"
@@ -88,8 +87,8 @@ def message_reply(replytoken, source, msg):
 
 def join_reply(replytoken, source):
 	#welcome join my line bot
-	msg_send = "感謝您的加入，目前服務有以下 \n \
-				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量)\
+	msg_send = "感謝加入，目前服務以下 \n \
+				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
 				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
 				3.旅遊資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
@@ -100,7 +99,7 @@ def join_reply(replytoken, source):
 def follow_reply(replytoken, source):
 	#welcome follow my line bot
 	msg_send = "感謝您的加入，目前服務有以下 \n \
-				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量)\
+				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
 				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
 				3.旅遊資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
