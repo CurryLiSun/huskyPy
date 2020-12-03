@@ -43,8 +43,8 @@ def about():
 @app.route('/crawl')
 def crawl():
     #cwb_crawl()
-    result_obj = cwb_crawl()
+    result_obj = news_prove_crawl()
     #print(result_obj)
 
-    return "getURL=>" + result_obj
+    return "getURL=>" + str(result_obj)
     pass

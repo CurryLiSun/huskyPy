@@ -7,16 +7,18 @@ import time
 import pathlib
 
 def travel_kaohsiung_crawl():
+	#define res data member
+	travel_result_list = []
 	travel_kaohsiung_r = requests.get(
     "https://travel.ettoday.net/category/%E9%AB%98%E9%9B%84/")
 	travel_soup = BeautifulSoup(travel_kaohsiung_r.text, "html.parser")
-	travel_result_list = []
 
 	travel_result = travel_soup.find_all(["h3"], attrs={"itemprop":"headline"})
 	for travel_detail in travel_result:
 		#print(travel_detail.getText() + " => ")
 		#print(travel_detail.select_one("a").get("href"))
-		travel_result_list.append(travel_detail.getText() + "link:"
+		travel_result_list.append(travel_detail.getText() + "\n"
+			+"link:"
 			+ travel_detail.select_one("a").get("href"))
 
 	#print(travel_result_list)
@@ -24,13 +26,20 @@ def travel_kaohsiung_crawl():
 
 
 def news_prove_crawl():
+	#define res data member
+	news_result_list = []
+	source_url = "https://tfc-taiwan.org.tw/articles/report"
 	news_prove_r = requests.get(
     "https://tfc-taiwan.org.tw/articles/report")
 	news_soup = BeautifulSoup(news_prove_r.text, "html.parser")
 
-	news_result = news_soup.find_all(["h3"], attrs={"class":"article-title"})
+	news_result = news_soup.find_all(["h3"], attrs={"class":"entity-list-title"})
+	for news_detail in news_result:
+	    news_result_list.append(news_detail.getText() + "\n"
+			+"link:"
+			+ source_url+news_detail.select_one("a").get("href"))
 
-	return news_result
+	return news_result_list
 
 def cwb_crawl(cwb_page=1):
 	cwb_local_url = "https://www.cwb.gov.tw"
