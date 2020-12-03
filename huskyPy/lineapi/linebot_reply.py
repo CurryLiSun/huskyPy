@@ -75,7 +75,7 @@ def message_reply(replytoken, source, msg):
 		messages = [TextSendMessage(str(result_search))]
 		)
 	elif no_space_msg == "@加油打氣":
-		result_search = "我知道這很不容易，但全體PUA都會支持你!"
+		result_search = "加油，這並不容易，不過我們全體PUA都會支持你!"
 
 		line_bot_api.reply_message(
 		reply_token = replytoken,
