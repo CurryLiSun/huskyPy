@@ -41,7 +41,7 @@ def news_prove_crawl():
 
 	return news_result_list
 
-def cwb_crawl(cwb_page=1):
+def cwb_crawl(cwb_page = 1):
 	cwb_local_url = "https://www.cwb.gov.tw"
 	cwb_contents_url = ["/V8/C/W/OBS_Sat.html","/V8/C/W/OBS_Radar.html","/V8/C/P/Rainfall/Rainfall_QZJ.html"]
 	cwb_search_url="";

@@ -1,6 +1,6 @@
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 from huskyPy import app
 from huskyPy.crawl.crawl_web import *
 from flask import request
@@ -15,37 +15,95 @@ def api_huskypy():
 	msg_type = data["events"][0]["type"]
 	msg_replytoken = data["events"][0]["replyToken"]
 	msg_source = data["events"][0]["source"]
-	msg_content = data["events"][0]["message"]
+	print("===req data")
 	print(data)
 	reply_msg_content = {};
 
 	if msg_type == "message":
-	    message_reply(msg_replytoken, msg_source, msg_content)
+		msg_content = data["events"][0]["message"]
+		message_reply(msg_replytoken, msg_source, msg_content)
 	elif msg_type == "join":
 		join_reply(msg_replytoken, msg_source)
 	elif msg_type == "follow":
 		follow_reply(msg_replytoken, msg_source)
-
 
 	json_str = json.dumps(reply_msg_content)
 	return "OK"
 
 #reply function
 def message_reply(replytoken, source, msg):
-	print(source)
-	print(msg)
-	
-	line_bot_api.reply_message(
+	no_space_msg = str(msg["text"]).lstrip().rstrip()
+	result_search = None
+	#remove string head and foot space
+	if no_space_msg == "@雷達":
+		result_search = cwb_crawl(1)
+
+		line_bot_api.reply_message(
 		reply_token = replytoken,
-		messages = [TextSendMessage(msg["text"])]
+		messages = [ImageSendMessage(original_content_url=result_search,
+							   preview_image_url=result_search)]
 		)
+
+	elif no_space_msg == "@衛星":
+		result_search = cwb_crawl(0)
+
+		line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [ImageSendMessage(original_content_url=result_search,
+							   preview_image_url=result_search)]
+		)
+	elif no_space_msg == "@雨量":
+		result_search = cwb_crawl(2)
+
+		line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [ImageSendMessage(original_content_url=result_search,
+							   preview_image_url=result_search)]
+		)
+	elif no_space_msg == "@高雄旅遊":
+		result_search = travel_kaohsiung_crawl()
+
+		line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(str(result_search))]
+		)
+	elif no_space_msg == "@新聞真假":
+		result_search = news_prove_crawl()
+
+		line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(str(result_search))]
+		)
+	elif no_space_msg == "@加油打氣":
+		result_search = "我知道這很不容易，但全體PUA都會支持你!"
+
+		line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(result_search)]
+		)
+		pass
 	
-	pass	
+	pass
 
 def join_reply(replytoken, source):
-	print(source)
-	
+	#welcome join my line bot
+	msg_send = "感謝加入，目前服務以下 \n \
+				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
+				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
+				3.旅遊資訊服務(輸入:@新聞真假) \n"
+	line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(msg_send)]
+		)
 
 def follow_reply(replytoken, source):
-	print(source)
+	#welcome follow my line bot
+	msg_send = "感謝您的加入，目前服務有以下 \n \
+				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
+				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
+				3.旅遊資訊服務(輸入:@新聞真假) \n"
+	line_bot_api.reply_message(
+		reply_token = replytoken,
+		messages = [TextSendMessage(msg_send)]
+		)
 	

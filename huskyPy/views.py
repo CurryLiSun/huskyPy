@@ -41,9 +41,14 @@ def about():
     )
 
 @app.route('/crawl')
-def crawl():
+@app.route('/crawl/<pge>')
+def crawl(pge = 1):
     #cwb_crawl()
+<<<<<<< HEAD
     result_obj = news_prove_crawl()
+=======
+    result_obj = cwb_crawl(int(pge))
+>>>>>>> 437ba1cd156710a49d19dc0de55c71eb870535a2
     #print(result_obj)
 
     return "getURL=>" + str(result_obj)
