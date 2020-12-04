@@ -30,7 +30,7 @@ def travel_kaohsiung_crawl():
 def news_prove_crawl():
 	#define res data member
 	news_result_list = []
-	source_url = "https://tfc-taiwan.org.tw/articles/report"
+	source_url = "https://tfc-taiwan.org.tw"
 	news_prove_r = requests.get(
     "https://tfc-taiwan.org.tw/articles/report")
 	news_soup = BeautifulSoup(news_prove_r.text, "html.parser")
