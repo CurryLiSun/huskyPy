@@ -17,8 +17,8 @@ def travel_kaohsiung_crawl():
 	for travel_detail in travel_result:
 		#print(travel_detail.getText() + " => ")
 		#print(travel_detail.select_one("a").get("href"))
-		travel_result_list.append(travel_detail.getText() + "</br>"
-			+"link:"
+		travel_result_list.append(travel_detail.getText() + "\n"
+			+"詳細連結:"
 			+ travel_detail.select_one("a").get("href") + "\n"
 		)
 
@@ -38,12 +38,11 @@ def news_prove_crawl():
 	news_result = news_soup.find_all(["h3"], attrs={"class":"entity-list-title"})
 	for news_detail in news_result:
 	    news_result_list.append(news_detail.getText() + "\n"
-			+"link:"
-			+ source_url+news_detail.select_one("a").get("href") + "\n"
+			+"詳細連結:"
+			+ source_url+news_detail.select_one("a").get("href") + "\n\n"
 		)
 
 	covernt_str = "".join(news_result_list)
-
 	return covernt_str
 
 def cwb_crawl(cwb_page = 1):

@@ -52,6 +52,7 @@ def message_reply(replytoken, source, msg):
 			messages = [ImageSendMessage(original_content_url=result_search,
 							preview_image_url=result_search)]
 		)
+
 	elif no_space_msg == "@雨量":
 		result_search = cwb_crawl(2)
 
@@ -60,6 +61,7 @@ def message_reply(replytoken, source, msg):
 			messages = [ImageSendMessage(original_content_url=result_search,
 							preview_image_url=result_search)]
 		)
+
 	elif no_space_msg == "@高雄旅遊":
 		result_search = travel_kaohsiung_crawl()
 
@@ -67,6 +69,7 @@ def message_reply(replytoken, source, msg):
 			reply_token = replytoken,
 			messages = [TextSendMessage(result_search)]
 		)
+
 	elif no_space_msg == "@新聞真假":
 		result_search = news_prove_crawl()
 
@@ -74,6 +77,7 @@ def message_reply(replytoken, source, msg):
 			reply_token = replytoken,
 			messages = [TextSendMessage(result_search)]
 		)
+
 	elif no_space_msg == "@加油打氣":
 		result_search = "加油，這並不容易，不過我們全體PUA都會支持你!"
 
@@ -81,6 +85,7 @@ def message_reply(replytoken, source, msg):
 			reply_token = replytoken,
 			messages = [TextSendMessage(result_search)]
 		)
+
 		pass
 	
 	pass
@@ -90,7 +95,7 @@ def join_reply(replytoken, source):
 	msg_send = "感謝加入，目前服務以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
 				2.旅遊資訊服務(輸入:@高雄旅遊) \n \
-				3.旅遊資訊服務(輸入:@新聞真假) \n"
+				3.新聞資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
 		reply_token = replytoken,
 		messages = [TextSendMessage(msg_send)]
@@ -101,7 +106,7 @@ def follow_reply(replytoken, source):
 	msg_send = "感謝您的加入，目前服務有以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
 				2.旅遊資訊服務(輸入:@高雄旅遊) \n \
-				3.旅遊資訊服務(輸入:@新聞真假) \n"
+				3.新聞資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
 		reply_token = replytoken,
 		messages = [TextSendMessage(msg_send)]
