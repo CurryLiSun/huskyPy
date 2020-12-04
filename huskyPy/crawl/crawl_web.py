@@ -38,8 +38,9 @@ def news_prove_crawl():
 	    news_result_list.append(news_detail.getText() + "\n"
 			+"link:"
 			+ source_url+news_detail.select_one("a").get("href")) + "\n"
+	covernt_str = "".join(news_result_list)
 
-	return "".join(news_result_list)
+	return covernt_str
 
 def cwb_crawl(cwb_page = 1):
 	cwb_local_url = "https://www.cwb.gov.tw"
