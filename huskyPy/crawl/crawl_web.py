@@ -21,8 +21,9 @@ def travel_kaohsiung_crawl():
 			+"link:"
 			+ travel_detail.select_one("a").get("href"))
 
+	covernt_str = "".join(travel_result_list)
 	#print(travel_result_list)
-	return travel_result_list
+	return covernt_str
 
 
 def news_prove_crawl():
@@ -39,7 +40,7 @@ def news_prove_crawl():
 			+"link:"
 			+ source_url+news_detail.select_one("a").get("href")) + "\n"
 	covernt_str = "".join(news_result_list)
-	str(covernt_str)
+
 	return covernt_str
 
 def cwb_crawl(cwb_page = 1):

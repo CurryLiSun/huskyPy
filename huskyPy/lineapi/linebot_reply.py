@@ -33,7 +33,7 @@ def api_huskypy():
 #reply function
 def message_reply(replytoken, source, msg):
 	no_space_msg = str(msg["text"]).lstrip().rstrip()
-	result_search = None
+	result_search = ""
 	#remove string head and foot space
 	if no_space_msg == "@雷達":
 		result_search = cwb_crawl(1)
@@ -65,11 +65,11 @@ def message_reply(replytoken, source, msg):
 
 		line_bot_api.reply_message(
 			reply_token = replytoken,
-			messages = [TextSendMessage(str(result_search))]
+			messages = [TextSendMessage(result_search)]
 		)
 	elif no_space_msg == "@新聞真假":
 		result_search = news_prove_crawl()
-		str(result_search)
+
 		line_bot_api.reply_message(
 			reply_token = replytoken,
 			messages = [TextSendMessage(result_search)]
