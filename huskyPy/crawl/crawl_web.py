@@ -39,7 +39,7 @@ def news_prove_crawl():
 			+"link:"
 			+ source_url+news_detail.select_one("a").get("href")) + "\n"
 	covernt_str = "".join(news_result_list)
-
+	str(covernt_str)
 	return covernt_str
 
 def cwb_crawl(cwb_page = 1):
