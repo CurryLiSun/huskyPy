@@ -48,5 +48,5 @@ def crawl(pge = 1):
     #result_obj = cwb_crawl(int(pge))
     #print(result_obj)
 
-    return "getURL=>" + str(result_obj)
+    return "getURL=>" + result_obj
     pass
