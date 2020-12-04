@@ -39,47 +39,47 @@ def message_reply(replytoken, source, msg):
 		result_search = cwb_crawl(1)
 
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [ImageSendMessage(original_content_url=result_search,
-							   preview_image_url=result_search)]
+			reply_token = replytoken,
+			messages = [ImageSendMessage(original_content_url=result_search,
+							preview_image_url=result_search)]
 		)
 
 	elif no_space_msg == "@衛星":
 		result_search = cwb_crawl(0)
 
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [ImageSendMessage(original_content_url=result_search,
-							   preview_image_url=result_search)]
+			reply_token = replytoken,
+			messages = [ImageSendMessage(original_content_url=result_search,
+							preview_image_url=result_search)]
 		)
 	elif no_space_msg == "@雨量":
 		result_search = cwb_crawl(2)
 
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [ImageSendMessage(original_content_url=result_search,
-							   preview_image_url=result_search)]
+			reply_token = replytoken,
+			messages = [ImageSendMessage(original_content_url=result_search,
+							preview_image_url=result_search)]
 		)
 	elif no_space_msg == "@高雄旅遊":
 		result_search = travel_kaohsiung_crawl()
 
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [TextSendMessage(str(result_search))]
+			reply_token = replytoken,
+			messages = [TextSendMessage(str(result_search))]
 		)
 	elif no_space_msg == "@新聞真假":
 		result_search = news_prove_crawl()
-
+		str(result_search)
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [TextSendMessage(result_search)]
+			reply_token = replytoken,
+			messages = [TextSendMessage(result_search)]
 		)
 	elif no_space_msg == "@加油打氣":
 		result_search = "加油，這並不容易，不過我們全體PUA都會支持你!"
 
 		line_bot_api.reply_message(
-		reply_token = replytoken,
-		messages = [TextSendMessage(result_search)]
+			reply_token = replytoken,
+			messages = [TextSendMessage(result_search)]
 		)
 		pass
 	
