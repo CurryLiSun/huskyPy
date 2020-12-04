@@ -72,7 +72,7 @@ def message_reply(replytoken, source, msg):
 
 		line_bot_api.reply_message(
 		reply_token = replytoken,
-		messages = [TextSendMessage(str(result_search))]
+		messages = [TextSendMessage(result_search)]
 		)
 	elif no_space_msg == "@加油打氣":
 		result_search = "加油，這並不容易，不過我們全體PUA都會支持你!"
@@ -89,7 +89,7 @@ def join_reply(replytoken, source):
 	#welcome join my line bot
 	msg_send = "感謝加入，目前服務以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
-				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
+				2.旅遊資訊服務(輸入:@高雄旅遊) \n \
 				3.旅遊資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
 		reply_token = replytoken,
@@ -100,7 +100,7 @@ def follow_reply(replytoken, source):
 	#welcome follow my line bot
 	msg_send = "感謝您的加入，目前服務有以下 \n \
 				1.氣象查詢服務(輸入:@雷達,@衛星,@雨量) \n \
-				2.旅遊資訊服務(輸入:@高雄旅遊) \n\
+				2.旅遊資訊服務(輸入:@高雄旅遊) \n \
 				3.旅遊資訊服務(輸入:@新聞真假) \n"
 	line_bot_api.reply_message(
 		reply_token = replytoken,

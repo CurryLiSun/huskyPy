@@ -35,11 +35,11 @@ def news_prove_crawl():
 
 	news_result = news_soup.find_all(["h3"], attrs={"class":"entity-list-title"})
 	for news_detail in news_result:
-	    news_result_list.append(news_detail.getText() + "</br>"
+	    news_result_list.append(news_detail.getText() + "\n"
 			+"link:"
-			+ source_url+news_detail.select_one("a").get("href"))
+			+ source_url+news_detail.select_one("a").get("href")) + "\n"
 
-	return news_result_list
+	return "".join(news_result_list)
 
 def cwb_crawl(cwb_page = 1):
 	cwb_local_url = "https://www.cwb.gov.tw"
