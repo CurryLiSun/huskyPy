@@ -45,6 +45,15 @@ def news_prove_crawl():
 	covernt_str = "".join(news_result_list)
 	return covernt_str
 
+def joke_crawl():
+	#define res data member
+	travel_result_list = []
+	travel_kaohsiung_r = requests.get(
+    "https://www.xiaohuayoumo.com/")
+	travel_soup = BeautifulSoup(travel_kaohsiung_r.text, "html.parser")
+
+	return travel_soup
+
 def cwb_crawl(cwb_page = 1):
 	cwb_local_url = "https://www.cwb.gov.tw"
 	cwb_contents_url = ["/V8/C/W/OBS_Sat.html","/V8/C/W/OBS_Radar.html","/V8/C/P/Rainfall/Rainfall_QZJ.html"]
@@ -65,11 +74,15 @@ def cwb_crawl(cwb_page = 1):
 	#print(os.environ.get("GOOGLE_CHROME_BIN") is not None)
 	print(os.environ)
 	#when evniron BIN PATH no value, then defult local PATH
+	#for cloud system server use
 	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH" ,"chromedriver"), chrome_options=options)
 	if os.environ.get("GOOGLE_CHROME_BIN") is not None :
 	    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 	#driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+	#for windows system server use
 	#driver = webdriver.Chrome("chromedriver" ,options=options)
+	#for linux system server use
+	#driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver" ,options=options)
 	driver.get(cwb_local_url + cwb_search_url)
 	htmlSource = driver.page_source
 	cwb_soup = BeautifulSoup(htmlSource, "html.parser")
