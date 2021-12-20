@@ -70,9 +70,9 @@ def cwb_crawl(cwb_page = 1):
 	options.add_argument("--headless")
 	options.add_argument("--disable-dev-shm-usage")
 	options.add_argument("--no-sandbox")
-	options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	#options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 	#print(os.environ.get("GOOGLE_CHROME_BIN") is not None)
-	print(os.environ)
+	#print(os.environ)
 	#when evniron BIN PATH no value, then defult local PATH
 	#for cloud system server use
 	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH" ,"chromedriver"), chrome_options=options)
@@ -81,6 +81,7 @@ def cwb_crawl(cwb_page = 1):
 	#driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 	#for windows system server use
 	#driver = webdriver.Chrome("chromedriver" ,options=options)
+	#driver = webdriver.Chrome("C:\git_source\huskyPy\huskyPy\crawl\chromedriver.exe" ,options=options)
 	#for linux system server use
 	#driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver" ,options=options)
 	driver.get(cwb_local_url + cwb_search_url)
